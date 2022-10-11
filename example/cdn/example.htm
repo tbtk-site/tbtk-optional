@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="../../dist/index.js"></script>
+    <title>動作サンプル</title>
+  </head>
+  <body>
+    <script>
+      function optionalTest(optional) {
+        return optional.getOrElse("空文字");
+      }
+      
+      document.body.innerHTML = 
+        optionalTest(just("文字列は"))
+        + optionalTest(none());
+    </script>
+  </body>
+</html>
