@@ -1,0 +1,17 @@
+// Node.JS(ESModule)向けのビルド設定
+{
+  "compilerOptions": {
+    "target": "ESNext",                       // 特に古いもの用のコードは出さない
+    "module": "ESNext",                       // ESModuleを使う
+    "moduleResolution": "NodeNext",           // ESModuleサポートを使う
+    "declaration": false,                     // 型定義ファイルはUMDのほうで出すので、ここでは出さない
+    "outDir": "./dist/esm",                   // 出力先
+    "forceConsistentCasingInFileNames": true, // ファイル名の大文字小文字は区別する
+    "esModuleInterop": true,                  // commonJSのモジュールもimportで読めるようにする
+    "strict": true,                           // 厳密オプション
+    "types": ["jest"]                         // これを入れておかないとJestが使えない
+  },
+  "include": [
+    "./src/tbtk-optional.ts"            // 余計なファイルをビルドされると困るため
+  ]
+}

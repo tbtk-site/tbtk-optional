@@ -1,0 +1,16 @@
+{
+  "name": "@tbtk-site/tbtk-optional-esm-example",
+  "version": "1.0.0",
+  "description": "Sample using ESModule",
+  "type": "module",
+  "main": "example.js",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "node example.js"
+  },
+  "devDependencies": {
+    "@tbtk-site/tbtk-optional": "../..",
+    "express": "^4.18.1"
+  }
+}
