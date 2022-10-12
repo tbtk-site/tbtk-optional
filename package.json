@@ -1,6 +1,6 @@
 {
   "name": "@tbtk-site/tbtk-optional",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript implementation of something like Java's Optional",
   "main": "dist/cjs/tbtk-optional.js",
   "module": "dist/esm/tbtk-optional.mjs",
