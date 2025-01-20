@@ -6,7 +6,7 @@
   "module": "dist/esm/tbtk-optional.mjs",
   "types": "dist/tbtk-optional.d.ts",
   "scripts": {
-    "prepublishOnly": "yarn run build",
+    "prepublishOnly": "pnpm run build",
     "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && webpack",
     "test": "jest"
   },
@@ -45,7 +45,6 @@
       ]
     }
   },
-  "packageManager": "yarn@3.2.3",
   "devDependencies": {
     "@types/jest": "^29.0.0",
     "jest": "^29.0.3",
