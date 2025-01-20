@@ -1,0 +1,23 @@
+services:
+  # TypeScriptとかが入った本体の名前は「application」にする
+  application:
+    build:
+      # このファイルがおいてある位置の「dockerfile」を参照する
+      context: .
+      # これが実際に起動するコンテナになる
+      dockerfile: Dockerfile
+    volumes:
+      # プロジェクトフォルダ自体をバインドマウントする。「..」なのはcontextが「.devcontainer」だから
+      # cachedがついているのは、ホストの書き込みの反映速度を犠牲に性能を優先する
+      - ..:/workspace:cached
+      # ローカルの「node_modules」フォルダに何も書かないように、コンテナ内部にボリュームマウントする
+      # 名前付きなのはキャッシュするため。名前付きでやるには外側の「volumes」に書かないといけないので注意
+      - devcontainer_node_modules:/workspace/node_modules
+      # 「.pnpm-store」でも同じことをする
+      - devcontainer_pnpm-store:/workspace/.pnpm-store
+    # これを入れないとこのコンテナは表で起動するプロセスがないので、コンテナが即座に落ちて使えない
+    tty: true
+# 複数コンテナで使う名有りのボリュームを定義
+volumes:
+  devcontainer_node_modules:
+  devcontainer_pnpm-store:
