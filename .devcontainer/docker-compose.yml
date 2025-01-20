@@ -15,6 +15,9 @@ services:
       - devcontainer_node_modules:/workspace/node_modules
       # 「.pnpm-store」でも同じことをする
       - devcontainer_pnpm-store:/workspace/.pnpm-store
+      # サンプルアプリ用のところはそんなに使わないので適当に名無しボリュームにしておく
+      -  /workspace/example/cjs/node_modules
+      -  /workspace/example/esm/node_modules
     # これを入れないとこのコンテナは表で起動するプロセスがないので、コンテナが即座に落ちて使えない
     tty: true
 # 複数コンテナで使う名有りのボリュームを定義

@@ -11,5 +11,5 @@
     //
     // - chownは、マウントしたフォルダのユーザをrootからnode(このイメージで作られてる一般ユーザ)に変える。
     //   これをやらないとこのフォルダに書き込みができないので「pnpm install」で落ちる。
-    "postCreateCommand": "sudo chown node node_modules && sudo chown node .pnpm-store && pnpm install"
+    "postCreateCommand": "sudo chown node node_modules && sudo chown node example/cjs/node_modules && sudo chown node example/esm/node_modules && sudo chown node .pnpm-store && pnpm install"
 }
