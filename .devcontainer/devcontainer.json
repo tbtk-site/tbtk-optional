@@ -1,0 +1,15 @@
+{
+    // 画面に表示される開発コンテナの名前。なんでもいい。
+	"name": "Node.js & TypeScript",
+    // 利用するDocker Composeの設定ファイルのパス
+    "dockerComposeFile": "docker-compose.yml",
+    // Docker Composeで立ち上げた、どのコンテナにつなぎに行くかをサービス名で指定
+    "service": "application",
+    // ワークスペースフォルダをどこにマウントするか。処理しやすくするため、明示的に固定する。
+	"workspaceFolder": "/workspace",
+    // コンテナが出来た後に実行されるコマンド
+    //
+    // - chownは、マウントしたフォルダのユーザをrootからnode(このイメージで作られてる一般ユーザ)に変える。
+    //   これをやらないとこのフォルダに書き込みができないので「pnpm install」で落ちる。
+    "postCreateCommand": "sudo chown node node_modules && sudo chown node example/cjs/node_modules && sudo chown node example/esm/node_modules && sudo chown node .pnpm-store && pnpm install"
+}
